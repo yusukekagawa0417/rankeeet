@@ -23,7 +23,7 @@
             - sum_quantity = 0
             - item.votes.each do |vote|
               - sum_quantity = sum_quantity + vote.quantity.to_i
-            = sum_quantity
+            = sum_quantity 
           %p.author-box__content.vote-button 
             = form_for [@ranking, item, @vote] do |f|
               = f.hidden_field :quantity, value: 1

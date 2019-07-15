@@ -40,6 +40,11 @@ class RankingsController < ApplicationController
     end
   end
 
+  def destroy
+    ranking = Ranking.find(params[:id])
+    ranking.destroy
+    redirect_to rankings_path
+  end
 
   private
 

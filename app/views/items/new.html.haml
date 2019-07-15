@@ -18,10 +18,12 @@
             - if item.present?
               .ranking_name.ranking-form__input
                 = item.name 
+              .ranking_name.ranking-form__delete
+                = link_to "削除", ranking_item_path(@ranking, item), method: :delete
           = f.text_field :name, class: 'ranking_name ranking-form__input', placeholder: '例： ラーメン'
+          = f.submit "登録（引き続き追加）"
       
     .ranking-form__field.clearfix
       .ranking-form__field--left
       .ranking-form__field--right
-        = f.submit "登録（引き続き追加）", class: 'ranking-form__action-btn'
         = link_to "完了", ranking_path(@ranking.id), class: 'ranking-form__action-btn'

@@ -5,7 +5,7 @@ $(function() {
     var sum_quantity = 0;
     ranking.items.forEach(function(item){
       sum_quantity = sum_quantity + item.votes_length;
-    });
+    }); 
   
     var html = `<div class="contents-box">
                 <p class="ranking-box__content"> 
@@ -48,13 +48,11 @@ $(function() {
       .done(function(rankings){
         $(".contents").empty();
         if (rankings.length !== 0){
-          
           rankings.forEach(function(ranking){
             appendRanking(ranking);
           });
         }
         else {
-          $(".contents").empty();
           appendErrMsgToHTML("一致するランキングはありません")
         }
       })

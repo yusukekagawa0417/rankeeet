@@ -30,5 +30,8 @@
             = ranking.user.name
           %p.created-time-box__content 
             = ranking.created_at.strftime("%Y-%m-%d")
+          - if user_signed_in? && ranking.user_id == current_user.id
+            .delete.box
+              = link_to "削除", ranking_path(ranking), method: :delete
     .pagenate
       = paginate @rankings
