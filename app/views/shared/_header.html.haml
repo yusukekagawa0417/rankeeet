@@ -1,0 +1,14 @@
+.header
+  .header__top-box
+    .header__top-box__left 
+      = link_to "Rankeeet", rankings_path, class: "LINK"
+
+    .header__top-box__right
+      = link_to "ランキング作成", new_ranking_path, class: "create-ranking LINK"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout LINK"
+      = link_to "新規登録", new_user_registration_path, class: "new-registration LINK"
+      = link_to "ログイン", new_user_session_path,class: "login LINK"
+      -# = link_to "facebookでログイン", user_facebook_omniauth_authorize_path, class: "facebook login LINK"
+      = link_to "twitterでログイン", user_twitter_omniauth_authorize_path, class: "twitter login LINK"
+
+

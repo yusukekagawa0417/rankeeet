@@ -1,0 +1,36 @@
+= render 'shared/header'
+
+.wrapper
+  .main
+    .title-box
+      %p.ranking-box__title 
+        = @ranking.name
+      %p.vote-box__title 票数
+      %p.author-box__title.blank
+      %p.created-time-box__title.remaining 
+        残り
+        - votes = Vote.where(user_id: current_user.id, ranking_id: @ranking.id)
+        = 5 - votes.length
+        票 
+    .contents
+      - @items.each_with_index do |item, i|
+        .contents-box
+          %p.ranking-box__content 
+            = i+1
+            = "位"
+            = item.name
+          %p.vote-box__content 
+            - sum_quantity = 0
+            - item.votes.each do |vote|
+              - sum_quantity = sum_quantity + vote.quantity.to_i
+            = sum_quantity
+          %p.author-box__content.vote-button 
+            = form_for [@ranking, item, @vote] do |f|
+              = f.hidden_field :quantity, value: 1
+              = f.submit "投票"
+          %p.created-time-box__content.delete-button 
+            = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete 
+    .graph
+      %canvas{id: "myChart"}
+      %script draw_graph();
+

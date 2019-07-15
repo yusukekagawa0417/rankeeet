@@ -1,0 +1,27 @@
+= render 'shared/header'
+
+.ranking-form
+  %h1 新規ランキング
+  = form_for [@ranking, @item] do |f|
+    .ranking-form__field.clearfix
+      .ranking-form__field--left
+        %label.ranking-form__label{for: "ranking_ランキング名"}ランキング名
+      .ranking-form__field--right
+        .ranking_name.ranking-form__input
+          = @ranking.name
+    .ranking-form__field.clearfix
+      .ranking-form__field--left
+        %label.ranking-form__label{for: "ranking_ランキング対象を追加"}ランキング対象を追加
+      .ranking-form__field--right
+        .ranking-form__search.clearfix        
+          - @items.each do |item|
+            - if item.present?
+              .ranking_name.ranking-form__input
+                = item.name 
+          = f.text_field :name, class: 'ranking_name ranking-form__input', placeholder: '例： ラーメン'
+      
+    .ranking-form__field.clearfix
+      .ranking-form__field--left
+      .ranking-form__field--right
+        = f.submit "登録（引き続き追加）", class: 'ranking-form__action-btn'
+        = link_to "完了", ranking_path(@ranking.id), class: 'ranking-form__action-btn'

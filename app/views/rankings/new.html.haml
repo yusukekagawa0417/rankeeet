@@ -1,0 +1,38 @@
+= render 'shared/header'
+
+.ranking-form
+  %h1 新規ランキング
+  = form_for @ranking do |f|
+    .ranking-form__field.clearfix
+      .ranking-form__field--left
+        %label.ranking-form__label{for: "ranking_ランキング名"}ランキング名
+      .ranking-form__field--right
+        = f.text_field :name, class: 'ranking_name ranking-form__input', placeholder: '例： 好きな食べ物'
+    -# .ranking-form__field.clearfix
+    -#   .ranking-form__field--left
+    -#     %label.ranking-form__label{for: "ranking_ランキング対象を追加"}ランキング対象を追加
+    -#   .ranking-form__field--right
+    -#     .ranking-form__search.clearfix
+    -#       %input.ranking-form__input{id: 'item-search-field', placeholder: '例： ラーメン', type: 'text'}
+    -#       = f.text_field :item_id, class: 'ranking_name ranking-form__input', placeholder: '例： ラーメン'
+    -#     %div{id: 'item-search-result'}
+
+    -# .ranking-form__field.clearfix
+    -#   .ranking-form__field--left
+    -#     %label.ranking-form__label{for: "ranking_ランキング対象"} ランキング対象
+    -#   .ranking-form__field--right
+    -#     .ranking-item.clearfix.js-chat-member#ranking-item-8
+    -#       - @ranking.items.each do |item| 
+    -#         %p.ranking-item__name 
+    -#           = item.name
+    -#         %div{class: 'item-search-remove ranking-item__btn ranking-item__btn--remove js-remove-btn', "data-item-id": item.id, "data-item-name": item.name} 削除
+        -# .ranking-item.clearfix
+        -#   %p.chat-group-user__name 
+        -#     = item.name
+        -#   .user-search-add.chat-group-user__btn.chat-group-user__btn--add 追加
+                      
+      
+    .ranking-form__field.clearfix
+      .ranking-form__field--left
+      .ranking-form__field--right
+        = f.submit class: 'ranking-form__action-btn'

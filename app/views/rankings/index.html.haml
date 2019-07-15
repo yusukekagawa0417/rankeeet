@@ -1,0 +1,34 @@
+= render 'shared/header'
+.search-form__field
+  .search-form__field--top
+    %label.search-form__label ランキングを検索
+  .search-form__field--bottom
+    .search-form__search
+      %input.search-form__input{id: 'ranking-search-field', placeholder: '見たいランキングを入力してください', type: 'text'}
+    %div{id: 'ranking-search-result'}
+  
+
+.wrapper
+  .main
+    .title-box
+      %p.ranking-box__title ランキング名
+      %p.vote-box__title 総票数
+      %p.author-box__title 作成者
+      %p.created-time-box__title 開始日
+
+    .contents
+      - @rankings.each do |ranking|
+        .contents-box
+          %p.ranking-box__content 
+            = link_to ranking.name, ranking_path(ranking.id), class: "ranking-box__content--link" 
+          %p.vote-box__content
+            - sum_quantity = 0 
+            - ranking.items.each do |item|
+              - sum_quantity = sum_quantity + item.votes.length
+            = sum_quantity
+          %p.author-box__content 
+            = ranking.user.name
+          %p.created-time-box__content 
+            = ranking.created_at.strftime("%Y-%m-%d")
+    .pagenate
+      = paginate @rankings
