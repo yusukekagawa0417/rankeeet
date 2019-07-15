@@ -6,11 +6,12 @@ class User < ApplicationRecord
          :trackable, :omniauthable
 
   def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+    user = User.where(uid: auth.uid, name: auth.name, provider: auth.provider).first
 
     unless user
       user = User.create(
         uid:      auth.uid,
+        name:     auth.info.name,
         provider: auth.provider,
         email:    User.dummy_email(auth),
         password: Devise.friendly_token[0, 20]

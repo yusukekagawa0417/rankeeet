@@ -71,4 +71,5 @@ gem 'gon', '~> 6.2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'dotenv-rails'
 

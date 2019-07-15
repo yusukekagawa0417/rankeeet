@@ -299,6 +299,6 @@ Devise.setup do |config|
 
   Devise.setup do |config|
     # config.omniauth :facebook, '{ID}', '{SECRET}'#, :scope => 'email,user_birthday', :display => 'popup'
-    config.omniauth :twitter, '3sWyu4UUByufX6yhdg48WfXFx', 'eBVFOjVkXhCoER2mWgVTTrdY6nPAuR9LTHfNg4Kwl8zwiy2RjU'#, :display => 'popup'
+    config.omniauth :twitter, ENV["API_key"], ENV["API_secret"]#, :display => 'popup'
   end
 end
