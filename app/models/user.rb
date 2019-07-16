@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :rankings
   has_many :votes
+  validates :name, presence: true, uniqueness: true
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, name: auth.info.name, provider: auth.provider).first

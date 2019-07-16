@@ -15,6 +15,7 @@
     .contents
       - @items.each_with_index do |item, i|
         .contents-box
+          %i.fas.fa-crown
           %p.ranking-box__content 
             = i+1
             = "位"
@@ -24,13 +25,13 @@
             - item.votes.each do |vote|
               - sum_quantity = sum_quantity + vote.quantity.to_i
             = sum_quantity 
-          %p.author-box__content.vote-button 
+          %p.author-box__content 
             = form_for [@ranking, item, @vote] do |f|
               = f.hidden_field :quantity, value: 1
-              = f.submit "投票"
-          %p.created-time-box__content.delete-button 
-            = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete 
+              = f.submit "投票", class: "vote-button"
+          %p.created-time-box__content 
+            = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete, class: "delete-button"
     .graph
       %canvas{id: "myChart"}
-      %script draw_graph();
+      %script draw_graph(); 
 

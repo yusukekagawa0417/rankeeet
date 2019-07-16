@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: rank_production
-  username: rank
-  password: <%= ENV['RANK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # database: rank_production
+  # username: rank
+  # password: <%= ENV['RANK_DATABASE_PASSWORD'] %>

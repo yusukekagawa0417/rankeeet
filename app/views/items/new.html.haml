@@ -5,23 +5,21 @@
   = form_for [@ranking, @item] do |f|
     .ranking-form__field.clearfix
       .ranking-form__field--left
-        %label.ranking-form__label{for: "ranking_ランキング名"}ランキング名
+        %label.ranking-form__label ランキング名
       .ranking-form__field--right
-        .ranking_name.ranking-form__input
+        .ranking-form__input
           = @ranking.name
     .ranking-form__field.clearfix
       .ranking-form__field--left
-        %label.ranking-form__label{for: "ranking_ランキング対象を追加"}ランキング対象を追加
+        %label.ranking-form__label ランキング対象を追加
       .ranking-form__field--right
-        .ranking-form__search.clearfix        
-          - @items.each do |item|
-            - if item.present?
-              .ranking_name.ranking-form__input
-                = item.name 
-              .ranking_name.ranking-form__delete
-                = link_to "削除", ranking_item_path(@ranking, item), method: :delete
-          = f.text_field :name, class: 'ranking_name ranking-form__input', placeholder: '例： ラーメン'
-          = f.submit "登録（引き続き追加）"
+        - @items.each do |item|
+          - if item.present?
+            .ranking-form__input
+              = item.name             
+            = link_to "削除", ranking_item_path(@ranking, item), method: :delete, class: "ranking-form__delete--link"
+        = f.text_field :name,  class: "ranking-form__input ranking-form__input--padding", placeholder: '例： ラーメン'
+        = f.submit "登録", class: 'ranking-form__registration--link'
       
     .ranking-form__field.clearfix
       .ranking-form__field--left

@@ -24,6 +24,11 @@ class RankingsController < ApplicationController
     end
 
     @vote = Vote.new
+
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
 
   def new
@@ -36,7 +41,8 @@ class RankingsController < ApplicationController
     if @ranking.save
       redirect_to new_ranking_item_path(@ranking.id)
     else
-      render :new
+      flash.now[:alert] = "同じ名前のランキングが既に存在します"
+      render :new 
     end
   end
 

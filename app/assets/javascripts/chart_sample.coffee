@@ -6,13 +6,13 @@ window.draw_graph = ->
     bdColors = new Array(barNum)
     # $(window).on 'load resize', ->
     w = $('.graph').width()
-    h = $('.graph').height() * barNum + 1
+    h = $('.graph').height() * (barNum + 0.5)
     $('#myChart').attr('width', w)
     $('#myChart').attr('height', h)
     for i in [0...barNum]
         labels[i] = gon.namedata[i]
-        bgColors[i] = 'rgba(255, 200, 0, 0.5)'
-        bdColors[i] = 'rgba(255, 200, 0, 1)'
+        bgColors[i] = 'rgba(255, 215, 0, 0.7)'
+        bdColors[i] = 'rgba(0, 0, 0, 0.2)'
     myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
@@ -26,6 +26,9 @@ window.draw_graph = ->
             }]
         },
         options: {
+            legend: {
+                display: false
+            }
             scales: {
                 xAxes: [{
                     ticks: {

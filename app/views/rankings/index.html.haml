@@ -1,11 +1,13 @@
 = render 'shared/header'
-.search-form__field
-  .search-form__field--top
-    %label.search-form__label ランキングを検索
-  .search-form__field--bottom
-    .search-form__search
-      %input.search-form__input{id: 'ranking-search-field', placeholder: '見たいランキングを入力してください', type: 'text'}
-    %div{id: 'ranking-search-result'}
+
+.header-wrapper
+  .search-form__field
+    .search-form__field--top
+      %label.search-form__label ランキングを検索
+    .search-form__field--bottom
+      .search-form__search
+        %input.search-form__input{id: 'ranking-search-field', placeholder: '見たいランキングを入力してください', type: 'text'}
+      %div{id: 'ranking-search-result'}
   
 
 .wrapper
@@ -29,9 +31,9 @@
           %p.author-box__content 
             = ranking.user.name
           %p.created-time-box__content 
-            = ranking.created_at.strftime("%Y-%m-%d")
-          - if user_signed_in? && ranking.user_id == current_user.id
-            .delete.box
-              = link_to "削除", ranking_path(ranking), method: :delete
+            = ranking.created_at.strftime("%Y/%m/%d")
+          .delete-box
+            - if user_signed_in? && ranking.user_id == current_user.id
+              = link_to "削除", ranking_path(ranking), method: :delete, class: "delete-box--link"
     .pagenate
       = paginate @rankings
