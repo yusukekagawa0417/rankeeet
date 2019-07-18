@@ -177,14 +177,21 @@ html, body {
   width: 95%;
 }
 
-.vote-button {
-  display: inline-block;
-  border: none;
-  padding: 6px 10px;
-  font-size: 16px;  
-  color: #fff;
+.vote-button__signed-in {
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  color: white;
   background-color: gold;
   border-radius: 5px;
+  line-height: 16px;
+  // display: inline-block;
+  // border: none;
+  // padding: 10px 10px;
+  // font-size: 16px;  
+  // color: #fff;
+  // background-color: gold;
+  // border-radius: 5px;
 }
 .delete-button {
   // margin-left: 18px;

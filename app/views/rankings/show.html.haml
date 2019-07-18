@@ -30,7 +30,7 @@
             = form_for [@ranking, item, @vote] do |f|
               = f.hidden_field :quantity, value: 1
               - if user_signed_in?
-                = f.submit "投票", class: "vote-button"
+                = f.submit "投票", class: "vote-button__signed-in"
               - else
                 = link_to "投票", new_user_session_path, class: "vote-button__no-signed-in"
           - if user_signed_in?
