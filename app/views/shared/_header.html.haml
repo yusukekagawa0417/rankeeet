@@ -8,6 +8,7 @@
         = link_to "ランキング作成", new_ranking_path, class: "create-ranking LINK"
       - else
         = link_to "ランキング作成", new_user_session_path, class: "create-ranking LINK"
+        -# - flash.now[:alert] = "ログインしてください"
 
       - if user_signed_in?
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout LINK"
@@ -15,7 +16,8 @@
         = link_to "新規登録", new_user_registration_path, class: "new-registration LINK"
         = link_to "ログイン", new_user_session_path,class: "login LINK"
         -# = link_to "facebookでログイン", user_facebook_omniauth_authorize_path, class: "facebook login LINK"
-        = link_to "twitterでログイン", user_twitter_omniauth_authorize_path, class: "twitter login LINK"
-  
-
-
+        = link_to "Twitterでログイン", user_twitter_omniauth_authorize_path, class: "twitter login LINK"
+        -# %i.fab.fa-twitter-square
+        = link_to "Twitterでシェア", "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"
+        -# %a{href: "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"} 
+        -# %script{src: "https://platform.twitter.com/widgets.js", charset: "utf-8"}

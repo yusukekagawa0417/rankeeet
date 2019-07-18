@@ -7,11 +7,12 @@
         = @ranking.name
       %p.vote-box__title 票数
       %p.author-box__title.blank
-      %p.created-time-box__title.remaining 
-        残り
-        - votes = Vote.where(user_id: current_user.id, ranking_id: @ranking.id)
-        = 5 - votes.length
-        票 
+      - if user_signed_in?
+        %p.created-time-box__title.remaining 
+          残り
+          - votes = Vote.where(user_id: current_user.id, ranking_id: @ranking.id)
+          = 5 - votes.length
+          票 
     .contents
       - @items.each_with_index do |item, i|
         .contents-box
@@ -28,9 +29,13 @@
           %p.author-box__content 
             = form_for [@ranking, item, @vote] do |f|
               = f.hidden_field :quantity, value: 1
-              = f.submit "投票", class: "vote-button"
-          %p.created-time-box__content 
-            = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete, class: "delete-button"
+              - if user_signed_in?
+                = f.submit "投票", class: "vote-button"
+              - else
+                = link_to "投票", new_user_session_path, class: "vote-button__no-signed-in"
+          - if user_signed_in?
+            %p.created-time-box__content 
+              = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete, class: "delete-button"
     .graph
       %canvas{id: "myChart"}
       %script draw_graph(); 

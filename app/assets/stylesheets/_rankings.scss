@@ -4,37 +4,67 @@ html, body {
   padding: 0;
 }
 
+.top {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  .image {
+    height: 100%;
+    width: 100%;
+  }
+  .top-title {
+    position: absolute;
+    font-size: 60px;
+    top: 5vh;
+    left: 30px;
+    color: black;
+    font-family: 'Caveat', cursive;
+  }
+  .top-sub-title {
+    position: absolute;
+    font-size: 20px;
+    top: 15vh;
+    left: 40px;
+    color: black;
+  }
+}
+
 .header {
-  height: 15vh; 
+  height: 20vh; 
   width: 100vw;
   &__top-box {
-    height: 70px;
+    height: 100%;
     width: 100vw;
-    color: white;
     background-color: black;
     display: flex;
-    line-height: 70px;
+    line-height: 20vh;
     justify-content: space-between;
     &__left {
-      margin-left: 20px;
-      font-size: 40px;
+      margin: 0 0 0 30px;
+      font-size: 60px;
       text-decoration: none;
       .LINK {
         text-decoration: none;
         color: gold;
+        font-family: 'Caveat', cursive;
       }
     }
     &__right {
-      margin-right: 20px; 
+      margin: 2vh 20px 0 0; 
       .LINK {
         font-size: 16px;
         text-decoration: none;
         color: gold;
         padding: 0 5px
       }
+      .twitter-share-button {
+        text-decoration: none;
+        color: gold;
+      }
     }
   }
 }
+
 
 .header-wrapper {
   height: 20vh;
@@ -44,7 +74,7 @@ html, body {
     width: 70vw;
     background-color: white;
     margin: 20px;
-    padding: 30px;
+    padding: 60px 30px 0;
     &--top {
       .search-form__label {
         font-size: 18px;
@@ -65,11 +95,12 @@ html, body {
 }
 
 .wrapper {
-  height: 75vh;
+  height: 100%;
   .main {
     width: 70vw;
-    margin: 40px 20px;
-    padding: 30px;
+    height: 100%;
+    margin: 20px 20px;
+    padding: 60px 30px 0;
     box-sizing: content-box;
     .title-box {
       display: flex;
@@ -115,6 +146,10 @@ html, body {
         .author-box__content {
           width: 10vw;
           text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin-bottom: 0;
         }
         .created-time-box__content {
           width: 10vw;
@@ -160,3 +195,26 @@ html, body {
   background-color: #38AEF0;
   border-radius: 5px;
 }
+.vote-button__no-signed-in {
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  color: white;
+  background-color: gold;
+  border-radius: 5px;
+}
+.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.row {
+  padding-top: 10vh;
+}
+// %i { 
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 400;
+//   content: "/f081";
+// }
