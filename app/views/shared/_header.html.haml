@@ -10,7 +10,7 @@
         = link_to "ランキング作成", new_user_session_path, class: "create-ranking LINK"
         -# - flash.now[:alert] = "ログインしてください"
 
-      -# - if user_signed_in?
+      - if user_signed_in?
         -# = link_to "Twitterでシェア", "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout LINK"
       - else
