@@ -11,7 +11,7 @@
         -# - flash.now[:alert] = "ログインしてください"
 
       - if user_signed_in?
-        = link_to "Twitterでシェア", "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"
+        = link_to "Twitterでシェア", "https://rankeeet.herokuapp.com/rankings", class: "twitter-share-button LINK"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout LINK"
       - else
         = link_to "新規登録", new_user_registration_path, class: "new-registration LINK"
@@ -21,7 +21,7 @@
         -# %i.fab.fa-twitter-square
 
       - unless user_signed_in? 
-        = link_to "Twitterでシェア", "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"
+        = link_to "Twitterでシェア", "https://rankeeet.herokuapp.com/rankings", class: "twitter-share-button LINK"
       
         
         -# %a{href: "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button LINK"} 
