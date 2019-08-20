@@ -66,8 +66,8 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 #### Association
 
-- has_many :items
-- has_many :votes
+- has_many :items, dependent: :destroy 
+- has_many :votes, dependent: :destroy 
 - belongs_to :user
 
 ### itemsテーブル
@@ -79,7 +79,7 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 #### Association
 
-- has_many :votes
+- has_many :votes, dependent: :destroy 
 - belongs_to :ranking
 
 ### votesテーブル
