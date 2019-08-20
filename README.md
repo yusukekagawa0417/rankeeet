@@ -32,6 +32,34 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
  2)ランキング作成、投票にはログインが必要です 
  3)その他は上記***デモ***をご参照ください
  
+## DB設計
+
+### usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|birthday|date|null: false|
+|tel|string|unique: true|
+|icon_image|string| |
+|profile|text| |
+|customer|string|null: false|
+|card|string|null: false|
+
+#### Association
+
+- has_one :address, dependent: :destroy
+- has_one :sns_credential, dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :receipts, dependent: :destroy
+- has_many :likes, dependent: :destroy
+
 ## テスト
  
  1)バリデーション、メソッドの単体テスト実施  
