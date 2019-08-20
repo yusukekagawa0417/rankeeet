@@ -19,18 +19,20 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
  
 ## 機能
  
- 1) ログイン機能（Twitter認証によるログインも可能）  
- 2) ランキング形式のアンケートを作成可能  
- 3) 自分が作成したランキングのみ削除可能  
- 4) ランキングはインクリメンタルサーチにより検索可能  
- 5) 各ランキングに対して1人5票まで投票可能  
- 6) ランキング項目の順位をグラフで表示  
- 7) Twitterでシェア可能
+ 1) アンケート一覧表示機能
+ 2) アンケート詳細表示機能
+ 3) ログイン機能（Twitter認証によるログインも可能）  
+ 4) 各アンケートに対する1人5票までの投票機能  
+ 5) ランキングのグラフ化機能  
+ 6) インクリメンタルサーチによるアンケート検索機能  
+ 7) アンケート作成機能
+ 8) 自分が作成したアンケートの削除機能  
+ 9) Twitterでのシェア機能
 
 ## 使い方
  
  1) ページの参照にログインは不要です  
- 2) ランキング作成、投票にはログインが必要です 
+ 2) アンケート作成、投票にはログインが必要です 
  3) その他は上記***デモ***をご参照ください
  
 ## DB設計
@@ -39,9 +41,15 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
+
+|name|string||
+|name|string||
+|uid|string||
+|name|string||
+|provider|string||
+
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
@@ -55,11 +63,48 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 #### Association
 
-- has_one :address, dependent: :destroy
-- has_one :sns_credential, dependent: :destroy
-- has_many :items, dependent: :destroy
-- has_many :receipts, dependent: :destroy
-- has_many :likes, dependent: :destroy
+- has_many :rankings
+- has_many :votes
+
+### rankingsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|user_id|references|foreign_key: true|
+
+#### Association
+
+- has_many :user
+- has_many :votes
+- belongs_to :items
+
+### itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+|ranking_id|references|foreign_key: true|
+
+#### Association
+
+- has_many :votes
+- belongs_to :ranking
+
+### votesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|quantity|string||
+|item_id|references|foreign_key: true|
+|ranking_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+
+#### Association
+
+- belongs_to :user
+- belongs_to :ranking
+- belongs_to :item
 
 ## テスト
  
