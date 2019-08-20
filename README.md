@@ -87,9 +87,10 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 |Column|Type|Options|
 |------|----|-------|
 |quantity|string||
-|item_id|references|foreign_key: true|
-|ranking_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
+|ranking_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
+
 
 #### Association
 
