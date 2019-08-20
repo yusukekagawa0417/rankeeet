@@ -41,25 +41,16 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false, unique: true|
-|encrypted_password|string|null: false|
-
-|name|string||
-|name|string||
-|uid|string||
-|name|string||
+|email|string|default: "", null: false, unique: true, index: true|
+|encrypted_password|string|default: "", null: false|
+|sign_in_count|integer|default: 0, null: false|
+|current_sign_in_at|datetime||
+|last_sign_in_at|datetime||
+|current_sign_in_ip|string||
+|last_sign_in_ip|string||
+|uid|string|index: true|
+|name|string|null: false, unique: true|
 |provider|string||
-
-|firstname|string|null: false|
-|lastname|string|null: false|
-|firstname_kana|string|null: false|
-|lastname_kana|string|null: false|
-|birthday|date|null: false|
-|tel|string|unique: true|
-|icon_image|string| |
-|profile|text| |
-|customer|string|null: false|
-|card|string|null: false|
 
 #### Association
 
@@ -70,20 +61,20 @@ https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true|
+|name|string|null: false, unique: true, index: true|
 |user_id|references|foreign_key: true|
 
 #### Association
 
-- has_many :user
+- has_many :items
 - has_many :votes
-- belongs_to :items
+- belongs_to :user
 
 ### itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 |ranking_id|references|foreign_key: true|
 
 #### Association
