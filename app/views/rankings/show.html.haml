@@ -29,11 +29,9 @@
           %p.author-box__content 
             = form_for [@ranking, item, @vote] do |f|
               = f.hidden_field :quantity, value: 1
-              - if user_signed_in?
-                = f.submit "投票", class: "vote-button__signed-in"
-              - else
-                = link_to "投票", new_user_session_path, class: "vote-button__no-signed-in"
-          - if user_signed_in?
+              = f.submit "投票", class: "vote-button__signed-in"
+              
+          - if user_signed_in? && item.votes.where(user_id: current_user.id) != []
             %p.created-time-box__content 
               = link_to "取消", ranking_item_vote_path(@ranking, item), method: :delete, class: "delete-button"
     .graph

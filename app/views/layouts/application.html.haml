@@ -2,7 +2,13 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Rankeet
+    %meta{name: "twitter:card", content: "summary_large_image"}
+    %meta{name: "twitter:site", content: "@pochan96493320"}
+    %meta{property: "og:url", content: "https://rankeeet.herokuapp.com/"}
+    %meta{property: "og:title", content: "Rannkeeet"}
+    %meta{property: "og:description", content: "ランキング形式のアンケートを自由に作れるサイトです"}
+    %meta{property: "og:image", content: "https://rankeeet.herokuapp.com/assets/ms-sue-huan-YhN-o8-nrzs-unsplash-a205c7e3055e1e4d3b93efadbac307158a82756ab4fe6f9f073c7cd3c5b286a8.jpg"}
+    %title Rankeeet
     = csrf_meta_tags
     = csp_meta_tag
     = Gon::Base.render_data
