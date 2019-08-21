@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_105043) do
+ActiveRecord::Schema.define(version: 2019_08_21_105901) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name", null: false
     t.bigint "ranking_id"
     t.index ["ranking_id"], name: "index_items_on_ranking_id"
   end
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_07_13_105043) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.bigint "uid"
-    t.string "name"
+    t.string "name", null: false
     t.string "provider"
     t.string "password"
     t.datetime "created_at", null: false
