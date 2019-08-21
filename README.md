@@ -9,31 +9,33 @@
  このWebアプリなら様々な人の意見を反映可能です。
  
 ***デモ***  
-https://i.gyazo.com/14c0d3e99b8221471b6799a3f197cb5e.mp4   
-https://i.gyazo.com/e9ea93d36e95e9869b055e253a73e361.mp4
-https://i.gyazo.com/c09c14a255ecd395dd3c4f194f21f30e.mp4
-https://i.gyazo.com/536055fe451e7f5ab1dba2f8a5ff4b8c.mp4
-https://i.gyazo.com/0a34d119b9516afa1f9f2a0a7121c944.mp4
-https://i.gyazo.com/669ee0dcb49e2190ecc5d2f8dc1a7e6c.mp4
- 
+https://i.gyazo.com/6eb2580b53a901ad1ca5b2ad7ab328d9.mp4  
+https://i.gyazo.com/332d0176f5f42752e6ef5f97fb8cabc1.mp4  
+https://i.gyazo.com/d428cfa57104ffea236d394c34cca164.mp4  
+https://i.gyazo.com/2f0eadedc2fb08bff46842577ce696c2.mp4
+https://i.gyazo.com/4a2b486d10e18592d9cb72c0a4ffa8d0.mp4  
+https://i.gyazo.com/3c4acebc47509498ebc5df5d50a34718.mp4  
+https://i.gyazo.com/0a34d119b9516afa1f9f2a0a7121c944.mp4  
+
  
 ## 機能
  
- 1) アンケート一覧表示機能
- 2) アンケート詳細表示機能
+ 1) アンケート一覧表示機能  
+ 2) アンケート詳細表示機能  
  3) ログイン機能（Twitter認証によるログインも可能）  
- 4) 各アンケートに対する1人5票までの投票機能  
- 5) ランキングのグラフ化機能  
- 6) インクリメンタルサーチによるアンケート検索機能  
- 7) アンケート作成機能
+ 4) アンケート作成機能  
+ 5) 各アンケートに対する1人5票までの投票機能  
+ 6) ランキングのグラフ化機能  
+ 7) インクリメンタルサーチによるアンケート検索機能  
  8) 自分が作成したアンケートの削除機能  
- 9) Twitterでのシェア機能
+ 9) Twitterでのシェア機能  
 
 ## 使い方
  
  1) ページの参照にログインは不要です  
- 2) アンケート作成、投票にはログインが必要です 
- 3) その他は上記***デモ***をご参照ください
+ 2) アンケート作成、投票にはログインが必要です
+ 3) パソコンの画面を最大にしてお使いください
+ 4) その他は上記***デモ***をご参照ください
  
 ## DB設計
 
