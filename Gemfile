@@ -71,7 +71,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'gon', '~> 6.2.0'
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
@@ -81,9 +80,10 @@ gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'rails-controller-testing'
 gem 'capybara', '>= 2.15'
+gem 'omniauth-rails_csrf_protection'
 
 group :production do
   gem 'pg'
 end
 
-gem 'bootstrap', '~> 4.1.1'
+gem "bootstrap", ">= 4.3.1"
