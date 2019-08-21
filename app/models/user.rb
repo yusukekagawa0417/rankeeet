@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :rankings
   has_many :votes
   validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, length: {minimum: 6}
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, name: auth.info.name, provider: auth.provider).first
